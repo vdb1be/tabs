@@ -8,7 +8,7 @@ import {
 } from '@react-navigation/core';
 import { NavigationProp, SceneDescriptor, Route } from '../types';
 
-export type NavigatorProps = {
+export type NavigationViewProps = {
   getLabelText: (props: { route: Route }) => string | undefined;
   getAccessibilityLabel: (props: { route: Route }) => string | undefined;
   getTestID: (props: { route: Route }) => string | undefined;
@@ -28,12 +28,12 @@ export type NavigatorProps = {
   navigationConfig: {};
 };
 
-export default function createTabNavigator<Props extends NavigatorProps>(
+export default function createTabNavigator<Props extends NavigationViewProps>(
   TabView: React.ComponentType<
-    Pick<Props, Exclude<keyof Props, keyof NavigatorProps>>
+    Pick<Props, Exclude<keyof Props, keyof NavigationViewProps>>
   >
 ): React.ComponentType<Props> {
-  class NavigationView extends React.Component<NavigatorProps> {
+  class NavigationView extends React.Component<NavigationViewProps> {
     _renderScene = ({ route }) => {
       const { screenProps, descriptors } = this.props;
       const descriptor = descriptors[route.key];
