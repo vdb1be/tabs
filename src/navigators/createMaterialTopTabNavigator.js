@@ -252,7 +252,7 @@ class MaterialTabView extends React.PureComponent<Props, State> {
         swipeEnabled={swipeEnabled}
         onAnimationEnd={this._handleAnimationEnd}
         onIndexChange={this._handleIndexChange}
-        onSwipeStart={this._handleSwipeStart}
+        // onSwipeStart={this._handleSwipeStart}
         renderPager={renderPager}
         renderTabBar={this._renderTabBar}
         renderScene={
